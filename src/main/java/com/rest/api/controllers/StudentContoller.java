@@ -14,7 +14,7 @@ public class StudentContoller {
 	@Autowired
 	private StudentService studentservice;
 
-	@RequestMapping(value={"/","/students"})
+	@RequestMapping("/students")
 	public List<Student> getAllStudents(){
 		return studentservice.getAllStudents();
 	}
