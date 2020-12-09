@@ -1,5 +1,6 @@
 package com.rest.api.services;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import com.rest.api.models.Teacher;
 
 @Service
 public class TeacherService {
-	private List<Teacher> teachers= Arrays.asList(
+	private List<Teacher> teachers= new ArrayList <>(Arrays.asList(
 			
 			new Teacher("Ali Khan",38,"CE","Bachelor of Science in Computer Engineering","BSCE"),
 			new Teacher("Tauseef Ali",38,"CE","Bachelor of Science in Computer Engineering","BSCE"),
@@ -18,7 +19,7 @@ public class TeacherService {
 			new Teacher("Zainab Zahra",38,"CE","Bachelor of Science in Computer Engineering","BSCE"),
 			new Teacher("Ibrar ul Haq",38,"EL","Bachelor of Science in Electrical Engineering","BSEL")
 			
-			);
+			));
 	
 	public List<Teacher> getAllTeachers() {
 		
@@ -29,6 +30,12 @@ public class TeacherService {
 	public Teacher getTeacher(@PathVariable String dept ) {
 		
 		return teachers.stream().filter(t -> t.getName().equals(dept)).findAny().get();
+	}
+
+	public void addTeacher(Teacher teacher) {
+		
+		teachers.add(teacher);
+		
 	}
 	
 }
